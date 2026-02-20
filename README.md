@@ -1,14 +1,14 @@
-# 🐍 Python School Activities 📚
+# 🐍 Python School Activities
 
-![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
-![GitHub](https://img.shields.io/badge/GitHub-README-brightgreen)
-![School](https://img.shields.io/badge/School-Activities-orange)
+- A small, friendly set of beginner Python exercises — copy, run, learn.
 
-<div align="center">
-  <img src="https://media.giphy.com/media/LMt9638cO8Bd1A4VfW/giphy.gif" width="200">
-  <h3>✨ Learn Python with Fun Activities! ✨</h3>
-  <p><i>A collection of basic Python programs for beginners</i></p>
-</div>
+![Python](https://img.shields.io/badge/Python-3.x-blue.svg) ![GitHub](https://img.shields.io/badge/GitHub-README-brightgreen) ![School](https://img.shields.io/badge/School-Activities-orange)
+
+<p align="center">
+  <img src="assets/animated-header.svg" alt="Animated header" width="720" />
+  <br />
+  <em>A collection of short, focused Python programs for learners 🎉</em>
+</p>
 
 ---
 
@@ -63,15 +63,11 @@ This repository contains **8 Python activities** perfect for beginners learning 
 git clone https://github.com/LikeNmuFF/Pytivities.git
 
 # Navigate to the folder
-cd python-school-activities
+cd Pytivities
 
 # Run any activity (example)
-python activity1.py
+python Activity1.py
 ```
-
-<div align="center">
-  <img src="https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif" width="300">
-</div>
 
 ---
 
@@ -191,12 +187,9 @@ The value of y after swapping: 5
 
 ---
 
-<div align="center">
-  <h2>🎮 Run All Activities at Once!</h2>
-  <img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" width="400">
-</div>
+## 🎮 Run All Activities at Once
 
-Copy all activities into one file and run:
+Copy all activities into one file and run (this script prints each exercise header then runs it):
 
 ```python
 # Complete Python School Activities
@@ -319,8 +312,8 @@ Activity 8: [██████████] 100% - Swap Variables
 ---
 
 <div align="center">
-  <h2>🌟 Happy Coding! 🌟</h2>
-  <img src="https://media.giphy.com/media/3o7abB06u9bNzA8LC8/giphy.gif" width="300">
+  <h2>🌟Happy Life - Happy Coding! 🌟</h2>
+  <img src="https://media.giphy.com/media/10zxDv7Hv5RF9C/giphy.gif" width="400">
   
   [![Made with ❤️](https://img.shields.io/badge/Made%20with-❤️-red.svg)](https://github.com/yourusername)
   [![For education](https://img.shields.io/badge/For-Education-blue.svg)](https://github.com/yourusername)
