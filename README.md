@@ -3,21 +3,11 @@
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
 ![GitHub](https://img.shields.io/badge/GitHub-README-brightgreen)
 ![School](https://img.shields.io/badge/School-Activities-orange)
-![Beginner Friendly](https://img.shields.io/badge/Beginner-Friendly-success.svg)
-![Run on GitHub](https://img.shields.io/badge/Run%20on-GitHub%20Actions-purple.svg)
 
 <div align="center">
-  <h1>✨ Learn Python with Fun Activities! ✨</h1>
-  <h3>A collection of basic Python programs for beginners</h3>
-  
-  ```python
-  while not proficient:
-      practice()
-      learn()
-      improve()
-  ```
-  
-  ### 🎮 **Now with GitHub Codespaces support!** 🎮
+  <img src="https://media.giphy.com/media/LMt9638cO8Bd1A4VfW/giphy.gif" width="200">
+  <h3>✨ Learn Python with Fun Activities! ✨</h3>
+  <p><i>A collection of basic Python programs for beginners</i></p>
 </div>
 
 ---
@@ -26,12 +16,10 @@
 
 - [🌟 Overview](#-overview)
 - [🎯 Activities](#-activities)
-- [🚀 Quick Start](#-quick-start)
-- [💻 Run on GitHub](#-run-on-github)
+- [🚀 Getting Started](#-getting-started)
 - [📝 Code Examples](#-code-examples)
-- [📊 Progress Tracker](#-progress-tracker)
-- [🎓 What You'll Learn](#-what-youll-learn)
 - [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
@@ -40,423 +28,272 @@
 This repository contains **8 Python activities** perfect for beginners learning programming! Each activity demonstrates fundamental Python concepts in a simple, easy-to-understand way.
 
 <div align="center">
-  
-| 💡 **Perfect For** | 🎮 **Interactive** | 📚 **Educational** | ☁️ **Cloud Ready** |
-|:---:|:---:|:---:|:---:|
-| Beginners | Hands-on coding | Step-by-step | GitHub Codespaces |
-
+  <img src="https://media.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif" width="400">
 </div>
 
 ---
 
 ## 🎯 Activities
 
-| #   | Activity                | Description            | Concepts                   | Difficulty | Run                                                                                   |
-| --- | ----------------------- | ---------------------- | -------------------------- | ---------- | ------------------------------------------------------------------------------------- |
-| 1️⃣  | **Hello World**         | First program ever!    | `print()` function         | ⭐         | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-1) |
-| 2️⃣  | **Add Two Numbers**     | Basic arithmetic       | Variables, `+` operator    | ⭐         | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-2) |
-| 3️⃣  | **User Input Addition** | Interactive program    | `input()`, type conversion | ⭐⭐       | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-3) |
-| 4️⃣  | **Square Root**         | Calculate square root  | `**` operator, formatting  | ⭐⭐       | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-4) |
-| 5️⃣  | **Complex Numbers**     | Math with complex nums | `cmath` module             | ⭐⭐⭐     | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-5) |
-| 6️⃣  | **Triangle Area**       | Heron's formula        | Math expressions           | ⭐⭐       | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-6) |
-| 7️⃣  | **Quadratic Equation**  | Solve ax²+bx+c=0       | `cmath`, complex math      | ⭐⭐⭐     | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-7) |
-| 8️⃣  | **Swap Variables**      | Exchange values        | Temporary variables        | ⭐         | [![Run](https://img.shields.io/badge/Run-Click%20Here-success.svg)](#-run-activity-8) |
+| #   | Activity                | Description            | Concepts                   |
+| --- | ----------------------- | ---------------------- | -------------------------- |
+| 1️⃣  | **Hello World**         | First program ever!    | `print()` function         |
+| 2️⃣  | **Add Two Numbers**     | Basic arithmetic       | Variables, `+` operator    |
+| 3️⃣  | **User Input Addition** | Interactive program    | `input()`, type conversion |
+| 4️⃣  | **Square Root**         | Calculate square root  | `**` operator, formatting  |
+| 5️⃣  | **Complex Numbers**     | Math with complex nums | `cmath` module             |
+| 6️⃣  | **Triangle Area**       | Heron's formula        | Math expressions           |
+| 7️⃣  | **Quadratic Equation**  | Solve ax²+bx+c=0       | `cmath`, complex math      |
+| 8️⃣  | **Swap Variables**      | Exchange values        | Temporary variables        |
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### Option 1: Run Locally
+### Prerequisites
+
+- Python 3.x installed
+- A code editor (VS Code, PyCharm, or any text editor)
+- Enthusiasm to learn! 🎉
+
+### How to Run
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/python-school-activities.git
+git clone https://github.com/LikeNmuFF/Pytivities.git
 
 # Navigate to the folder
 cd python-school-activities
 
-# Run any activity
+# Run any activity (example)
 python activity1.py
 ```
 
-### Option 2: Run on GitHub Codespaces ☁️
-
-1. Click the green **"Code"** button
-2. Select **"Codespaces"** tab
-3. Click **"Create codespace on main"**
-4. Wait for the environment to load (30-60 seconds)
-5. Run any activity in the terminal!
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/yourusername/python-school-activities)
+<div align="center">
+  <img src="https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif" width="300">
+</div>
 
 ---
 
-## 💻 Run on GitHub
+## 📝 Code Examples
 
-### 📁 Repository Structure
-
-```
-python-school-activities/
-│
-├── 📂 activities/
-│   ├── 📄 activity1_hello_world.py
-│   ├── 📄 activity2_add_numbers.py
-│   ├── 📄 activity3_user_input.py
-│   ├── 📄 activity4_square_root.py
-│   ├── 📄 activity5_complex_numbers.py
-│   ├── 📄 activity6_triangle_area.py
-│   ├── 📄 activity7_quadratic.py
-│   └── 📄 activity8_swap_variables.py
-│
-├── 📂 .devcontainer/
-│   └── 📄 devcontainer.json
-│
-├── 📄 run_all.py
-├── 📄 requirements.txt
-├── 📄 README.md
-└── 📄 .gitignore
-```
-
-### 🎮 Run Activity 1
-
-<details open>
-<summary><b>Click to run Activity 1 in your browser!</b> 👈</summary>
+### 🎬 Activity 1: Hello World
 
 ```python
-# Copy this code and paste it into any Python online compiler!
-# Or run it directly in GitHub Codespaces!
-
-print("=" * 40)
-print("ACTIVITY 1: Hello World")
-print("=" * 40)
 print("Hello World!")
-print()
-print("🎉 Congratulations on running your first Python program!")
-print("=" * 40)
 ```
 
-**Try it online:** [![Run on Replit](https://img.shields.io/badge/Run%20on-Replit-1E1E1E?style=for-the-badge&logo=replit)](https://replit.com/languages/python3)
-
-</details>
+**Output:** `Hello World!`
 
 ---
 
-### 🎮 Run Activity 2
-
-<details>
-<summary><b>Click to run Activity 2!</b> 👈</summary>
+### ➕ Activity 2: Add Two Numbers
 
 ```python
-# Copy and run this code!
-
-print("=" * 40)
-print("ACTIVITY 2: Add Two Numbers")
-print("=" * 40)
-
 num1 = 1.5
 num2 = 6.3
 sum = num1 + num2
-
-print(f"Number 1: {num1}")
-print(f"Number 2: {num2}")
-print(f"Sum: {num1} + {num2} = {sum}")
-print("=" * 40)
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
 ```
 
-</details>
+**Output:** `The sum of 1.5 and 6.3 is 7.8`
 
 ---
 
-### 🎮 Run Activity 3
-
-<details>
-<summary><b>Click to run Activity 3 (Interactive)!</b> 👈</summary>
+### ⌨️ Activity 3: User Input Addition
 
 ```python
-# This is an interactive program!
-# When running on GitHub Codespaces, you can type inputs!
-
-print("=" * 40)
-print("ACTIVITY 3: User Input Addition")
-print("=" * 40)
-
-try:
-    num1 = input("Enter first number: ")
-    num2 = input("Enter second number: ")
-
-    sum = float(num1) + float(num2)
-
-    print(f"\n{num1} + {num2} = {sum}")
-except:
-    print("Please enter valid numbers!")
-
-print("=" * 40)
+num2 = input("Enter first number: ")
+num3 = input("Enter second number: ")
+sum = float(num2) + float(num3)
+print('The sum of {0} and {1} is {2}'.format(num2, num3, sum))
 ```
 
-</details>
+**Interactive!** Users can enter their own numbers.
 
 ---
 
-### 🎮 Run Activity 4
-
-<details>
-<summary><b>Click to run Activity 4!</b> 👈</summary>
+### √ Activity 4: Square Root
 
 ```python
-print("=" * 40)
-print("ACTIVITY 4: Square Root")
-print("=" * 40)
-
 num = 8
 num_sqrt = num ** 0.5
-
-print(f"Number: {num}")
-print(f"Square Root: {num_sqrt:.3f}")
-print("=" * 40)
+print('The square root of %0.3f is %0.3f' % (num, num_sqrt))
 ```
 
-</details>
+**Output:** `The square root of 8.000 is 2.828`
 
 ---
 
-### 🎮 Run Activity 5
-
-<details>
-<summary><b>Click to run Activity 5!</b> 👈</summary>
+### 🔢 Activity 5: Complex Numbers
 
 ```python
 import cmath
-
-print("=" * 40)
-print("ACTIVITY 5: Complex Numbers")
-print("=" * 40)
-
 num = 1+2j
 num_sqrt = cmath.sqrt(num)
-
-print(f"Complex Number: {num}")
-print(f"Square Root: {num_sqrt.real:.3f} + {num_sqrt.imag:.3f}j")
-print("=" * 40)
+print('The square root of {0} is {1:0.3f} + {2:0.3f}j'.format(num, num_sqrt.real, num_sqrt.imag))
 ```
 
-</details>
+**Output:** `The square root of (1+2j) is 1.272 + 0.786j`
 
 ---
 
-### 🎮 Run Activity 6
-
-<details>
-<summary><b>Click to run Activity 6!</b> 👈</summary>
+### 🔺 Activity 6: Triangle Area
 
 ```python
-print("=" * 40)
-print("ACTIVITY 6: Triangle Area")
-print("=" * 40)
-
 a = 5
 b = 6
 c = 7
-
 s = (a + b + c) / 2
 area = (s*(s-a)*(s-b)*(s-c))**0.5
-
-print(f"Triangle sides: {a}, {b}, {c}")
-print(f"Area: {area:.2f} square units")
-print("=" * 40)
+print('The area of the triangle is %0.2f' % area)
 ```
 
-</details>
+**Output:** `The area of the triangle is 14.70`
 
 ---
 
-### 🎮 Run Activity 7
-
-<details>
-<summary><b>Click to run Activity 7!</b> 👈</summary>
+### 📈 Activity 7: Quadratic Equation
 
 ```python
 import cmath
-
-print("=" * 40)
-print("ACTIVITY 7: Quadratic Equation")
-print("=" * 40)
-
 a = 1
 b = 5
 c = 6
-
-print(f"Equation: {a}x² + {b}x + {c} = 0")
-
 d = (b**2) - (4*a*c)
 sol1 = (-b-cmath.sqrt(d))/(2*a)
 sol2 = (-b+cmath.sqrt(d))/(2*a)
-
-print(f"Solution 1: {sol1}")
-print(f"Solution 2: {sol2}")
-print("=" * 40)
+print('The solution are {0} and {1}'.format(sol1, sol2))
 ```
 
-</details>
+**Output:** `The solution are (-3+0j) and (-2+0j)`
 
 ---
 
-### 🎮 Run Activity 8
-
-<details>
-<summary><b>Click to run Activity 8!</b> 👈</summary>
+### 🔄 Activity 8: Swap Variables
 
 ```python
-print("=" * 40)
-print("ACTIVITY 8: Swap Variables")
-print("=" * 40)
-
 x = 5
 y = 10
-
-print(f"Before swapping: x = {x}, y = {y}")
-
-# Swapping
 temp = x
 x = y
 y = temp
-
-print(f"After swapping:  x = {x}, y = {y}")
-print("=" * 40)
+print('The value of x after swapping: {}'.format(x))
+print('The value of y after swapping: {}'.format(y))
 ```
 
-</details>
+**Output:**
+
+```
+The value of x after swapping: 10
+The value of y after swapping: 5
+```
 
 ---
 
-## 🚀 Run ALL Activities at Once!
+<div align="center">
+  <h2>🎮 Run All Activities at Once!</h2>
+  <img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" width="400">
+</div>
 
-### Option 1: Run with GitHub Codespaces
-
-Just click the button below and type `python run_all.py` in the terminal!
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/yourusername/python-school-activities)
-
-### Option 2: Copy this complete program
-
-<details>
-<summary><b>Click to see the complete runnable program!</b> 👈</summary>
+Copy all activities into one file and run:
 
 ```python
-#!/usr/bin/env python3
-"""
-PYTHON SCHOOL ACTIVITIES - COMPLETE EDITION
-Run this file to see all activities in action!
-"""
+# Complete Python School Activities
+# Copy and paste everything below!
 
-def print_header(title):
-    print("\n" + "=" * 60)
-    print(f"🐍 {title} 🐍")
-    print("=" * 60)
+# ACTIVITY 1
+print("=" * 50)
+print("ACTIVITY 1: Hello World")
+print("=" * 50)
+print("Hello World!")
+print()
 
-def print_subheader(activity):
-    print("\n" + "-" * 40)
-    print(f"📌 {activity}")
-    print("-" * 40)
+# ACTIVITY 2
+print("=" * 50)
+print("ACTIVITY 2: Add Two Numbers")
+print("=" * 50)
+num1 = 1.5
+num2 = 6.3
+sum = num1 + num2
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+print()
 
-def activity_1():
-    print_subheader("ACTIVITY 1: Hello World")
-    print("Hello World!")
-    print("Your first Python program runs successfully!")
+# ACTIVITY 3
+print("=" * 50)
+print("ACTIVITY 3: User Input Addition")
+print("=" * 50)
+num2 = input("Enter first number: ")
+num3 = input("Enter second number: ")
+sum = float(num2) + float(num3)
+print('The sum of {0} and {1} is {2}'.format(num2, num3, sum))
+print()
 
-def activity_2():
-    print_subheader("ACTIVITY 2: Add Two Numbers")
-    num1 = 1.5
-    num2 = 6.3
-    sum = num1 + num2
-    print(f'{num1} + {num2} = {sum}')
+# ACTIVITY 4
+print("=" * 50)
+print("ACTIVITY 4: Square Root")
+print("=" * 50)
+num = 8
+num_sqrt = num ** 0.5
+print('The square root of %0.3f is %0.3f' % (num, num_sqrt))
+print()
 
-def activity_3():
-    print_subheader("ACTIVITY 3: User Input Addition")
-    print("(Using default values for demonstration)")
-    num1, num2 = 8, 12  # Default values for demo
-    sum = float(num1) + float(num2)
-    print(f'{num1} + {num2} = {sum}')
-    print("💡 In interactive mode, you can enter your own numbers!")
+# ACTIVITY 5
+print("=" * 50)
+print("ACTIVITY 5: Complex Numbers")
+print("=" * 50)
+import cmath
+num = 1+2j
+num_sqrt = cmath.sqrt(num)
+print('The square root of {0} is {1:0.3f} + {2:0.3f}j'.format(num, num_sqrt.real, num_sqrt.imag))
+print()
 
-def activity_4():
-    print_subheader("ACTIVITY 4: Square Root")
-    num = 8
-    num_sqrt = num ** 0.5
-    print(f'The square root of {num:.3f} is {num_sqrt:.3f}')
+# ACTIVITY 6
+print("=" * 50)
+print("ACTIVITY 6: Triangle Area")
+print("=" * 50)
+a = 5
+b = 6
+c = 7
+s = (a + b + c) / 2
+area = (s*(s-a)*(s-b)*(s-c))**0.5
+print('The area of the triangle is %0.2f' % area)
+print()
 
-def activity_5():
-    print_subheader("ACTIVITY 5: Complex Numbers")
-    import cmath
-    num = 1+2j
-    num_sqrt = cmath.sqrt(num)
-    print(f'The square root of {num} is {num_sqrt.real:.3f} + {num_sqrt.imag:.3f}j')
+# ACTIVITY 7
+print("=" * 50)
+print("ACTIVITY 7: Quadratic Equation")
+print("=" * 50)
+a = 1
+b = 5
+c = 6
+d = (b**2) - (4*a*c)
+sol1 = (-b-cmath.sqrt(d))/(2*a)
+sol2 = (-b+cmath.sqrt(d))/(2*a)
+print('The solution are {0} and {1}'.format(sol1, sol2))
+print()
 
-def activity_6():
-    print_subheader("ACTIVITY 6: Triangle Area")
-    a, b, c = 5, 6, 7
-    s = (a + b + c) / 2
-    area = (s*(s-a)*(s-b)*(s-c))**0.5
-    print(f'Triangle with sides {a}, {b}, {c}')
-    print(f'Area: {area:.2f} square units')
-
-def activity_7():
-    print_subheader("ACTIVITY 7: Quadratic Equation")
-    import cmath
-    a, b, c = 1, 5, 6
-    d = (b**2) - (4*a*c)
-    sol1 = (-b-cmath.sqrt(d))/(2*a)
-    sol2 = (-b+cmath.sqrt(d))/(2*a)
-    print(f'Equation: {a}x² + {b}x + {c} = 0')
-    print(f'Solutions: {sol1} and {sol2}')
-
-def activity_8():
-    print_subheader("ACTIVITY 8: Swap Variables")
-    x, y = 5, 10
-    print(f'Before: x = {x}, y = {y}')
-    x, y = y, x  # Pythonic way to swap!
-    print(f'After:  x = {x}, y = {y}')
-
-def main():
-    print_header("PYTHON SCHOOL ACTIVITIES - COMPLETE EDITION")
-    print("Running all 8 activities...\n")
-
-    activities = [
-        activity_1,
-        activity_2,
-        activity_3,
-        activity_4,
-        activity_5,
-        activity_6,
-        activity_7,
-        activity_8
-    ]
-
-    for i, activity in enumerate(activities, 1):
-        activity()
-        print(f"\n✅ Activity {i} completed!")
-
-    print("\n" + "=" * 60)
-    print("🎉 ALL ACTIVITIES COMPLETED SUCCESSFULLY! 🎉")
-    print("=" * 60)
-    print("\n📚 Next steps:")
-    print("   • Modify the code and experiment!")
-    print("   • Try the interactive version with user input")
-    print("   • Create your own activities!")
-    print("\n🐍 Happy Coding!")
-
-if __name__ == "__main__":
-    main()
+# ACTIVITY 8
+print("=" * 50)
+print("ACTIVITY 8: Swap Variables")
+print("=" * 50)
+x = 5
+y = 10
+temp = x
+x = y
+y = temp
+print('The value of x after swapping: {}'.format(x))
+print('The value of y after swapping: {}'.format(y))
+print("=" * 50)
+print("🎉 THANKS FOR LEARNING PYTHON! 🎉")
+print("=" * 50)
 ```
-
-</details>
 
 ---
 
-## 📊 Progress Tracker
+## 📊 Learning Progress
 
-```markdown
-📈 Your Learning Journey:
-
+```
 Activity 1: [██████████] 100% - Hello World
 Activity 2: [██████████] 100% - Adding Numbers
 Activity 3: [██████████] 100% - User Input
@@ -465,82 +302,26 @@ Activity 5: [██████████] 100% - Complex Numbers
 Activity 6: [██████████] 100% - Triangle Area
 Activity 7: [██████████] 100% - Quadratic
 Activity 8: [██████████] 100% - Swap Variables
-
-Total Progress: [████████████████████] 100% Complete!
 ```
 
 ---
 
 ## 🎓 What You'll Learn
 
-<div align="center">
-
-| ✅  | Concept                    | Activities | GitHub Compatible |
-| --- | -------------------------- | ---------- | ----------------- |
-| ✅  | Basic `print()` statements | 1          | ✅                |
-| ✅  | Variables and data types   | 2, 3       | ✅                |
-| ✅  | User input handling        | 3          | ✅ (Codespaces)   |
-| ✅  | Mathematical operations    | 2, 4, 6    | ✅                |
-| ✅  | Using Python modules       | 5, 7       | ✅                |
-| ✅  | String formatting          | All        | ✅                |
-| ✅  | Problem-solving skills     | All        | ✅                |
-
-</div>
-
----
-
-## 🤝 Contributing
-
-Found a bug? Want to add more activities? Contributions are welcome!
-
-1. 🍴 Fork the repository
-2. 🌿 Create your feature branch
-3. 💾 Commit your changes
-4. 📤 Push to the branch
-5. 🔍 Open a Pull Request
-
----
-
-## 📜 License & Usage
-
-This project is licensed under the MIT License - feel free to use, modify, and share!
-
-```
-MIT License
-
-Copyright (c) 2024 Python School Activities
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files...
-```
+✅ Basic `print()` statements  
+✅ Variables and data types  
+✅ User input handling  
+✅ Mathematical operations  
+✅ Using Python modules  
+✅ String formatting  
+✅ Problem-solving skills
 
 ---
 
 <div align="center">
-
-### 🌟 Star this repo if you found it helpful! 🌟
-
-### 🚀 Ready to start? Click the button below! 🚀
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/yourusername/python-school-activities)
-
-| Platform          | How to Run                   |
-| ----------------- | ---------------------------- |
-| 💻 **Local**      | `python filename.py`         |
-| ☁️ **Codespaces** | Click the badge above        |
-| 🌐 **Browser**    | Use the embedded code blocks |
-
-```python
-# Your Python journey starts here!
-print("Hello, Python World!")
-print("I'm ready to learn!")
-```
-
-[![Made with ❤️](https://img.shields.io/badge/Made%20with-❤️-red.svg)](https://github.com/yourusername)
-[![For education](https://img.shields.io/badge/For-Education-blue.svg)](https://github.com/yourusername)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername)
-[![GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-purple.svg)](https://github.com/features/codespaces)
-
-**Happy Coding!** 🚀
-
+  <h2>🌟 Happy Coding! 🌟</h2>
+  <img src="https://media.giphy.com/media/3o7abB06u9bNzA8LC8/giphy.gif" width="300">
+  
+  [![Made with ❤️](https://img.shields.io/badge/Made%20with-❤️-red.svg)](https://github.com/yourusername)
+  [![For education](https://img.shields.io/badge/For-Education-blue.svg)](https://github.com/yourusername)
 </div>
