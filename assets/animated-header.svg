@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ff6b6b">
+        <animate attributeName="stop-color" values="#ff6b6b;#feca57;#48dbfb;#ff6b6b" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#5f27cd">
+        <animate attributeName="stop-color" values="#5f27cd;#10ac84;#01a3a4;#5f27cd" dur="6s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0f1724" />
+
+  <g transform="translate(0,80)">
+    <text x="50%" y="0" font-size="48" font-family="Verdana, Arial, Helvetica, sans-serif" fill="url(#g)" text-anchor="middle" font-weight="700">Pytivities</text>
+  </g>
+
+  <g transform="translate(0,150)">
+    <circle cx="60" cy="0" r="12" fill="#ff6b6b">
+      <animate attributeName="cx" values="60;360;60" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="260" cy="0" r="10" fill="#feca57">
+      <animate attributeName="cx" values="140;520;140" dur="6s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="460" cy="0" r="14" fill="#48dbfb">
+      <animate attributeName="cx" values="240;700;240" dur="5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <g transform="translate(0,40)">
+    <text x="50%" y="110" font-size="16" font-family="Verdana, Arial, Helvetica, sans-serif" fill="#cbd5e1" text-anchor="middle">Learn Python with fun activities 🎉</text>
+  </g>
+</svg>
