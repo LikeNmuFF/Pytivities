@@ -1,6 +1,6 @@
 #====================================
-#activity 6                         |
-#Calculate the area of a triangle   |
+#activity 6                         #
+#Calculate the area of a triangle   #
 #====================================
 a = 5
 b = 6

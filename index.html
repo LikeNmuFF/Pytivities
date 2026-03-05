@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🐍 Pytivities — Python School Activities</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+<style>
+  :root[data-theme="dark"] {
+    --bg:#0a0a0f;--bg2:#0f0f1a;--bg3:#141428;--card:#12121f;--card-border:#1e1e3a;
+    --text:#e8e8f0;--text2:#9090b0;--accent:#7c6aff;--accent2:#a78bfa;--accent3:#38bdf8;
+    --glow:rgba(124,106,255,0.3);--glow2:rgba(56,189,248,0.2);--grid:rgba(124,106,255,0.05);
+    --badge-bg:#1a1a30;--highlight:#ff6b9d;--table-row:#0f0f1e;--table-alt:#141428;
+    --code-bg:#0d0d1f;--shadow:0 0 40px rgba(124,106,255,0.15);--run-btn:#7c6aff;
+    --terminal-bg:#060614;--terminal-text:#a0f0a0;--err-text:#ff6b9d;
+  }
+  :root[data-theme="light"] {
+    --bg:#f0f0f8;--bg2:#e8e8f5;--bg3:#dcdcee;--card:#ffffff;--card-border:#c8c8e0;
+    --text:#1a1a2e;--text2:#4a4a6a;--accent:#5b4de8;--accent2:#7c6aff;--accent3:#0ea5e9;
+    --glow:rgba(91,77,232,0.15);--glow2:rgba(14,165,233,0.1);--grid:rgba(91,77,232,0.05);
+    --badge-bg:#eeeeff;--highlight:#e0185a;--table-row:#fafaff;--table-alt:#f0f0fa;
+    --code-bg:#f5f5ff;--shadow:0 4px 30px rgba(91,77,232,0.1);--run-btn:#5b4de8;
+    --terminal-bg:#f0fff0;--terminal-text:#1a6e1a;--err-text:#c0132a;
+  }
+  :root[data-theme="neon"] {
+    --bg:#000005;--bg2:#020208;--bg3:#04040e;--card:#05050f;--card-border:#00ff9920;
+    --text:#e0ffe8;--text2:#00cc77;--accent:#00ff99;--accent2:#00ffcc;--accent3:#ff00aa;
+    --glow:rgba(0,255,153,0.35);--glow2:rgba(255,0,170,0.25);--grid:rgba(0,255,153,0.04);
+    --badge-bg:#002211;--highlight:#ff00aa;--table-row:#03030d;--table-alt:#060616;
+    --code-bg:#020210;--shadow:0 0 60px rgba(0,255,153,0.2);--run-btn:#00ff99;
+    --terminal-bg:#001a0a;--terminal-text:#00ff99;--err-text:#ff00aa;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Space Mono',monospace;line-height:1.7;min-height:100vh;overflow-x:hidden;transition:background .4s,color .4s;}
+  body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+
+  .container{max-width:920px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
+
+  .theme-bar{display:flex;justify-content:flex-end;gap:8px;margin-bottom:32px;position:sticky;top:16px;z-index:100;}
+  .theme-btn{background:var(--card);border:1px solid var(--card-border);color:var(--text2);font-family:'Space Mono',monospace;font-size:11px;padding:6px 14px;border-radius:20px;cursor:pointer;transition:all .25s;letter-spacing:.05em;}
+  .theme-btn:hover,.theme-btn.active{border-color:var(--accent);color:var(--accent);box-shadow:0 0 14px var(--glow);}
+  .theme-btn.active{font-weight:700;}
+
+  /* Loader */
+  #pyodide-loader{position:fixed;inset:0;background:rgba(5,5,15,0.95);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .6s;}
+  #pyodide-loader.hidden{opacity:0;pointer-events:none;}
+  .loader-snake{font-size:64px;animation:floatSnake 1.4s ease-in-out infinite;}
+  .loader-text{font-family:'Syne',sans-serif;font-size:1.2rem;color:#a78bfa;font-weight:700;}
+  .loader-bar{width:280px;height:7px;background:#1e1e3a;border-radius:99px;overflow:hidden;}
+  .loader-fill{height:100%;background:linear-gradient(90deg,#7c6aff,#38bdf8,#ff6b9d);background-size:200%;border-radius:99px;width:0%;transition:width .3s ease;animation:shimmer 1.5s linear infinite;}
+  @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+  .loader-sub{font-size:11px;color:#9090b0;letter-spacing:.1em;}
+
+  /* Hero */
+  .hero{text-align:center;padding:60px 0 40px;}
+  .snake-anim{font-size:72px;display:block;animation:floatSnake 3s ease-in-out infinite;filter:drop-shadow(0 0 20px var(--glow));margin-bottom:16px;}
+  @keyframes floatSnake{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-12px) rotate(3deg);}}
+  .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,6vw,3.6rem);font-weight:800;line-height:1.1;background:linear-gradient(135deg,var(--accent) 0%,var(--accent3) 60%,var(--highlight) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero .subtitle{color:var(--text2);font-size:.85rem;margin-top:12px;letter-spacing:.08em;}
+
+  .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0;}
+  .badge{background:var(--badge-bg);border:1px solid var(--card-border);color:var(--accent2);font-size:11px;padding:5px 14px;border-radius:20px;letter-spacing:.08em;font-weight:700;transition:all .25s;}
+  .badge:hover{border-color:var(--accent);box-shadow:0 0 12px var(--glow);transform:translateY(-2px);}
+
+  .highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:36px 0;}
+  @media(min-width:600px){.highlights{grid-template-columns:repeat(4,1fr);}}
+  .highlight-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:18px 14px;text-align:center;transition:all .3s;}
+  .highlight-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 8px 32px var(--glow);}
+  .highlight-card .icon{font-size:28px;margin-bottom:8px;}
+  .highlight-card .label{font-size:11px;color:var(--text2);letter-spacing:.06em;}
+
+  .section-header{display:flex;align-items:center;gap:12px;margin:48px 0 20px;font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--accent2);}
+  .section-header::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--accent),transparent);}
+
+  .table-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);}
+  table{width:100%;border-collapse:collapse;}
+  thead{background:var(--card);}
+  thead th{padding:12px 16px;text-align:left;font-size:11px;letter-spacing:.1em;color:var(--accent);font-weight:700;text-transform:uppercase;}
+  tbody tr{border-top:1px solid var(--card-border);transition:background .2s,transform .2s;}
+  tbody tr:nth-child(odd){background:var(--table-row);}
+  tbody tr:nth-child(even){background:var(--table-alt);}
+  tbody tr:hover{background:var(--bg3);transform:translateX(4px);}
+  tbody td{padding:11px 16px;font-size:13px;}
+  .num{color:var(--accent);font-weight:700;}
+  .act-name{color:var(--text);font-weight:600;}
+  .desc{color:var(--text2);font-size:12px;}
+  .concept{display:inline-block;background:var(--badge-bg);border:1px solid var(--card-border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--accent2);}
+
+  /* ── CODE BLOCK ── */
+  .activity-block{margin:28px 0;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);box-shadow:var(--shadow);transition:box-shadow .3s;}
+  .activity-block:hover{box-shadow:0 0 30px var(--glow),0 0 60px var(--glow2);}
+  .act-header{background:var(--card);padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--card-border);}
+  .act-num{width:32px;height:32px;background:var(--accent);color:var(--bg);border-radius:8px;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .act-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;flex:1;}
+  .window-dots{display:flex;gap:6px;margin-left:auto;}
+  .window-dots span{width:10px;height:10px;border-radius:50%;background:var(--card-border);}
+  .window-dots span:nth-child(1){background:#ff5f57;}
+  .window-dots span:nth-child(2){background:#febc2e;}
+  .window-dots span:nth-child(3){background:#28c840;}
+
+  .code-editor-wrap{position:relative;background:var(--code-bg);}
+  .code-textarea{width:100%;min-height:120px;background:transparent;color:var(--text);font-family:'Space Mono',monospace;font-size:13px;line-height:1.9;padding:18px 20px;border:none;outline:none;resize:vertical;tab-size:4;caret-color:var(--accent);display:block;transition:background .3s;}
+  .code-textarea:focus{background:rgba(0,0,0,0.1);}
+
+  .run-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--card);border-top:1px solid var(--card-border);}
+  .run-btn{background:var(--run-btn);color:var(--bg);border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;padding:8px 22px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s;letter-spacing:.05em;}
+  .run-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 20px var(--glow);}
+  .run-btn:active:not(:disabled){transform:scale(0.97);}
+  .run-btn:disabled{opacity:.5;cursor:not-allowed;}
+  .spin{display:inline-block;animation:spin .7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .reset-btn{background:transparent;border:1px solid var(--card-border);color:var(--text2);font-family:'Space Mono',monospace;font-size:11px;padding:7px 14px;border-radius:8px;cursor:pointer;transition:all .2s;}
+  .reset-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .run-status{font-size:11px;margin-left:auto;letter-spacing:.04em;transition:color .3s;}
+
+  /* Terminal */
+  .terminal{background:var(--terminal-bg);border-top:1px solid var(--card-border);padding:0;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(0.16,1,0.3,1),padding .45s;}
+  .terminal.open{max-height:320px;padding:16px 20px 20px;}
+  .terminal-header{font-size:10px;letter-spacing:.12em;color:var(--text2);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .terminal-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--glow);animation:blink 1.5s ease-in-out infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+  .terminal-output{font-family:'Space Mono',monospace;font-size:13px;color:var(--terminal-text);white-space:pre-wrap;line-height:1.9;overflow-y:auto;max-height:220px;}
+  .terminal-output.error{color:var(--err-text);}
+  .out-line{opacity:0;transform:translateX(-5px);animation:lineIn .18s ease forwards;}
+  @keyframes lineIn{to{opacity:1;transform:none;}}
+
+  /* Input prompt */
+  .input-prompt-wrap{margin-top:8px;}
+  .input-row{display:flex;align-items:center;gap:10px;margin-top:8px;}
+  .input-prompt-label{color:var(--accent);font-size:13px;white-space:nowrap;font-family:'Space Mono',monospace;}
+  .input-field{flex:1;background:transparent;border:none;border-bottom:2px solid var(--accent);color:var(--terminal-text);font-family:'Space Mono',monospace;font-size:13px;outline:none;padding:3px 6px;transition:border-color .2s;}
+  .input-field:focus{border-color:var(--highlight);}
+  .input-hint{font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:.06em;}
+
+  /* Progress */
+  .progress-section{margin:36px 0;}
+  .prog-item{display:grid;grid-template-columns:110px 1fr 40px;align-items:center;gap:14px;margin-bottom:10px;}
+  .prog-label{font-size:12px;color:var(--text2);}
+  .prog-track{height:8px;background:var(--card);border-radius:99px;overflow:hidden;border:1px solid var(--card-border);}
+  .prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent3));width:0%;transition:width 1.5s cubic-bezier(0.16,1,0.3,1);box-shadow:0 0 10px var(--glow);}
+  .prog-pct{font-size:11px;color:var(--accent);font-weight:700;text-align:right;}
+
+  .learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:20px;}
+  .learn-item{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:10px;font-size:13px;transition:all .25s;}
+  .learn-item:hover{border-color:var(--accent);transform:translateX(4px);box-shadow:0 0 14px var(--glow);}
+  .check{color:var(--accent);font-size:16px;}
+
+  .gs-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:24px 28px;margin:20px 0;}
+  .gs-card h3{font-family:'Syne',sans-serif;font-size:1rem;color:var(--accent2);margin-bottom:12px;}
+  .bash-block{background:var(--code-bg);border:1px solid var(--card-border);border-radius:10px;padding:16px 20px;font-size:13px;color:var(--accent);margin-top:12px;}
+  .bash-line{margin-bottom:4px;}
+  .bash-line::before{content:'$ ';color:var(--highlight);}
+
+  .footer{text-align:center;margin-top:60px;padding:40px;background:var(--card);border:1px solid var(--card-border);border-radius:16px;animation:pulse-border 3s ease-in-out infinite;}
+  @keyframes pulse-border{0%,100%{border-color:var(--card-border);box-shadow:none;}50%{border-color:var(--accent);box-shadow:0 0 30px var(--glow);}}
+  .footer h2{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--highlight));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .footer p{color:var(--text2);margin-top:8px;font-size:13px;}
+
+  .particle{position:fixed;width:3px;height:3px;background:var(--accent);border-radius:50%;pointer-events:none;opacity:0;animation:particleFly linear infinite;}
+  @keyframes particleFly{0%{opacity:0;transform:translateY(100vh) scale(0);}10%{opacity:.6;}90%{opacity:.3;}100%{opacity:0;transform:translateY(-10vh) scale(1);}}
+
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:48px 0;opacity:.4;}
+  ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<div id="pyodide-loader">
+  <div class="loader-snake">🐍</div>
+  <div class="loader-text">Loading Python Engine</div>
+  <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+  <div class="loader-sub" id="loaderSub">Initializing Pyodide runtime...</div>
+</div>
+
+<div id="particles"></div>
+
+<div class="container">
+  <div class="theme-bar">
+    <button class="theme-btn active" onclick="setTheme('dark',this)">🌙 Dark</button>
+    <button class="theme-btn" onclick="setTheme('light',this)">☀️ Light</button>
+    <button class="theme-btn" onclick="setTheme('neon',this)">⚡ Neon</button>
+  </div>
+
+  <div class="hero">
+    <span class="snake-anim">🐍</span>
+    <h1>Python School Activities</h1>
+    <p class="subtitle">// 14 beginner-friendly exercises — edit &amp; run code live in your browser</p>
+    <div class="badges">
+      <span class="badge">🐍 Python 3.x</span>
+      <span class="badge">📚 14 Activities</span>
+      <span class="badge">▶ Live Runner</span>
+      <span class="badge">✏️ Editable Code</span>
+    </div>
+  </div>
+
+  <div class="highlights">
+    <div class="highlight-card"><div class="icon">⭐</div><div class="label">Beginner Friendly</div></div>
+    <div class="highlight-card"><div class="icon">▶</div><div class="label">Run Live Code</div></div>
+    <div class="highlight-card"><div class="icon">✏️</div><div class="label">Edit &amp; Experiment</div></div>
+    <div class="highlight-card"><div class="icon">🧠</div><div class="label">Learn by Doing</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-header">🚀 Getting Started</div>
+  <div class="gs-card">
+    <h3>Clone &amp; Run Locally</h3>
+    <p style="color:var(--text2);font-size:13px;">Python 3.x · VS Code or PyCharm · Any terminal</p>
+    <div class="bash-block">
+      <div class="bash-line">git clone https://github.com/LikeNmuFF/Pytivities.git</div>
+      <div class="bash-line">cd Pytivities</div>
+      <div class="bash-line">python Activity1.py</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-header">🎯 All Activities</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Activity</th><th>Description</th><th>Concept</th></tr></thead>
+      <tbody id="actTable"></tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-header">📝 Code Examples — Edit &amp; Run Live ▶</div>
+  <div id="codeBlocks"></div>
+
+  <div class="divider"></div>
+
+  <div class="section-header">📊 Learning Progress</div>
+  <div class="progress-section" id="progressBars"></div>
+
+  <div class="divider"></div>
+
+  <div class="section-header">🎓 What You'll Learn</div>
+  <div class="learn-grid" id="learnGrid"></div>
+
+  <div class="footer">
+    <h2>🌟 Happy Coding! 🌟</h2>
+    <p>Made for <strong>students learning Python</strong> 🐍</p>
+  </div>
+</div>
+
+<script>
+const activities = [
+  {n:1,name:"Hello World",desc:"First Python program",concept:"print()",emoji:"👋"},
+  {n:2,name:"Add Two Numbers",desc:"Basic arithmetic",concept:"variables",emoji:"➕"},
+  {n:3,name:"User Input Addition",desc:"Interactive program",concept:"input()",emoji:"⌨️"},
+  {n:4,name:"Square Root",desc:"Calculate square root",concept:"math operators",emoji:"√"},
+  {n:5,name:"Complex Numbers",desc:"Math with complex numbers",concept:"cmath",emoji:"🔢"},
+  {n:6,name:"Triangle Area",desc:"Heron's formula",concept:"expressions",emoji:"🔺"},
+  {n:7,name:"Quadratic Equation",desc:"Solve quadratic equation",concept:"math",emoji:"📈"},
+  {n:8,name:"Swap Variables",desc:"Exchange values",concept:"variables",emoji:"🔄"},
+  {n:9,name:"Random Number",desc:"Generate random number",concept:"random",emoji:"🎲"},
+  {n:10,name:"Km to Miles",desc:"Unit conversion",concept:"arithmetic",emoji:"📏"},
+  {n:11,name:"Access List Items",desc:"Working with lists",concept:"indexing",emoji:"📚"},
+  {n:12,name:"List Comprehension",desc:"Filter list values",concept:"list comprehension",emoji:"⚡"},
+  {n:13,name:"List Slicing",desc:"Extract list section",concept:"slicing",emoji:"✂️"},
+  {n:14,name:"Loop Through List",desc:"Iterate list items",concept:"for loop",emoji:"🔁"},
+];
+
+const codeExamples = [
+  {n:1, code:`print("Hello World!")`},
+  {n:2, code:`num1 = 1.5\nnum2 = 6.3\n\nsum = num1 + num2\n\nprint('The sum of {0} and {1} is {2}'.format(num1, num2, sum))`},
+  {n:3, code:`num1 = input("Enter first number: ")\nnum2 = input("Enter second number: ")\n\nsum = float(num1) + float(num2)\n\nprint('The sum of {0} and {1} is {2}'.format(num1, num2, sum))`},
+  {n:4, code:`num = 8\n\nnum_sqrt = num ** 0.5\n\nprint('The square root of %0.3f is %0.3f' % (num, num_sqrt))`},
+  {n:5, code:`import cmath\n\nnum = 1 + 2j\n\nnum_sqrt = cmath.sqrt(num)\n\nprint('The square root of {0} is {1:0.3f} + {2:0.3f}j'.format(num, num_sqrt.real, num_sqrt.imag))`},
+  {n:6, code:`a = 5\nb = 6\nc = 7\n\ns = (a + b + c) / 2\n\narea = (s*(s-a)*(s-b)*(s-c))**0.5\n\nprint('The area of the triangle is %0.2f' % area)`},
+  {n:7, code:`import cmath\n\na = 1\nb = 5\nc = 6\n\nd = (b**2) - (4*a*c)\n\nsol1 = (-b-cmath.sqrt(d))/(2*a)\nsol2 = (-b+cmath.sqrt(d))/(2*a)\n\nprint('The solutions are {0} and {1}'.format(sol1, sol2))`},
+  {n:8, code:`x = 5\ny = 10\n\ntemp = x\nx = y\ny = temp\n\nprint('The value of x after swapping:', x)\nprint('The value of y after swapping:', y)`},
+  {n:9, code:`import random\n\nprint(random.randint(0, 9))`},
+  {n:10, code:`kilometers = 3.5\n\nconv_fac = 0.621371\n\nmiles = kilometers * conv_fac\n\nprint('%0.2f kilometers is equal to %0.2f miles' % (kilometers, miles))`},
+  {n:11, code:`a = [10, 20, 30, 40, 50]\n\nprint(a[0])\nprint(a[-1])`},
+  {n:12, code:`a = [10, 20, 30, 40, 50]\n\nb = [item for item in a if item > 20]\n\nprint(b)`},
+  {n:13, code:`a = [10, 20, 30, 40, 50]\n\nprint(a[1:4])`},
+  {n:14, code:`a = [10, 20, 30, 40, 50]\n\nfor item in a:\n    print(item)`},
+];
+
+const originalCode = {};
+codeExamples.forEach(e => { originalCode[e.n] = e.code; });
+
+const learns = ["Python basics","Variables & data types","User input","Math operations","Python modules","Lists & indexing","List comprehension","List slicing","Loops & iteration"];
+
+// Render table
+const tbody = document.getElementById('actTable');
+activities.forEach(a => {
+  tbody.innerHTML += `<tr>
+    <td class="num">${String(a.n).padStart(2,'0')}</td>
+    <td class="act-name">${a.emoji} ${a.name}</td>
+    <td class="desc">${a.desc}</td>
+    <td><span class="concept">${a.concept}</span></td>
+  </tr>`;
+});
+
+// Render code blocks
+const codeWrap = document.getElementById('codeBlocks');
+codeExamples.forEach(ex => {
+  const act = activities.find(a => a.n === ex.n);
+  codeWrap.innerHTML += `
+  <div class="activity-block">
+    <div class="act-header">
+      <div class="act-num">${String(ex.n).padStart(2,'0')}</div>
+      <span class="act-title">${act.emoji} ${act.name}</span>
+      <div class="window-dots"><span></span><span></span><span></span></div>
+    </div>
+    <div class="code-editor-wrap">
+      <textarea class="code-textarea" id="code${ex.n}" spellcheck="false">${ex.code}</textarea>
+    </div>
+    <div class="run-bar">
+      <button class="run-btn" id="runBtn${ex.n}" onclick="runCode(${ex.n})">▶ Run</button>
+      <button class="reset-btn" onclick="resetCode(${ex.n})">↺ Reset</button>
+      <span class="run-status" id="status${ex.n}"></span>
+    </div>
+    <div class="terminal" id="terminal${ex.n}">
+      <div class="terminal-header"><span class="terminal-dot"></span>Output</div>
+      <div class="terminal-output" id="output${ex.n}"></div>
+    </div>
+  </div>`;
+});
+
+// Tab key support
+document.addEventListener('keydown', e => {
+  if (e.key === 'Tab' && e.target.classList.contains('code-textarea')) {
+    e.preventDefault();
+    const ta = e.target, s = ta.selectionStart, end = ta.selectionEnd;
+    ta.value = ta.value.substring(0,s) + '    ' + ta.value.substring(end);
+    ta.selectionStart = ta.selectionEnd = s + 4;
+  }
+});
+
+// Progress bars
+const pb = document.getElementById('progressBars');
+activities.forEach(a => {
+  pb.innerHTML += `<div class="prog-item">
+    <div class="prog-label">Activity ${String(a.n).padStart(2,'0')}</div>
+    <div class="prog-track"><div class="prog-fill" id="pf${a.n}"></div></div>
+    <div class="prog-pct">100%</div>
+  </div>`;
+});
+new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ activities.forEach((a,i)=>setTimeout(()=>{ const el=document.getElementById('pf'+a.n); if(el) el.style.width='100%'; },i*70)); } });
+},{threshold:0.2}).observe(pb);
+
+// Learn grid
+const lg = document.getElementById('learnGrid');
+learns.forEach((l,i) => {
+  lg.innerHTML += `<div class="learn-item"><span class="check">✔</span>${l}</div>`;
+});
+
+// Theme
+function setTheme(t, btn) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Particles
+const pc = document.getElementById('particles');
+function mkParticle(){ const p=document.createElement('div'); p.className='particle'; p.style.left=Math.random()*100+'vw'; p.style.animationDuration=(9+Math.random()*10)+'s'; p.style.animationDelay=(Math.random()*4)+'s'; p.style.width=p.style.height=(2+Math.random()*3)+'px'; pc.appendChild(p); setTimeout(()=>p.remove(),22000); }
+setInterval(mkParticle, 700);
+for(let i=0;i<8;i++) setTimeout(mkParticle,i*250);
+
+// ── PYODIDE ──
+let pyodide = null;
+let pyReady = false;
+
+(async () => {
+  const fill = document.getElementById('loaderFill');
+  const sub = document.getElementById('loaderSub');
+  let pct = 0;
+  const ticker = setInterval(() => { pct = Math.min(pct + Math.random()*7, 85); fill.style.width = pct+'%'; }, 250);
+  try {
+    pyodide = await loadPyodide();
+    clearInterval(ticker);
+    fill.style.width = '100%';
+    sub.textContent = '✓ Python ready — happy coding!';
+    pyReady = true;
+    setTimeout(() => document.getElementById('pyodide-loader').classList.add('hidden'), 700);
+  } catch(err) {
+    clearInterval(ticker);
+    sub.textContent = '⚠ Could not load Python. Check your connection.';
+  }
+})();
+
+// ── RUN CODE ──
+async function runCode(n) {
+  if (!pyReady) { alert('Python engine is still loading, please wait a moment…'); return; }
+
+  const btn = document.getElementById('runBtn'+n);
+  const terminal = document.getElementById('terminal'+n);
+  const outputEl = document.getElementById('output'+n);
+  const status = document.getElementById('status'+n);
+  const code = document.getElementById('code'+n).value;
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin">⟳</span> Running…';
+  outputEl.innerHTML = '';
+  outputEl.className = 'terminal-output';
+  status.textContent = '';
+  terminal.classList.add('open');
+
+  // Count input() calls
+  const inputCount = (code.match(/\binput\s*\(/g) || []).length;
+  let inputs = [];
+
+  if (inputCount > 0) {
+    inputs = await gatherInputs(n, code, inputCount);
+    if (inputs === null) {
+      btn.disabled = false;
+      btn.innerHTML = '▶ Run';
+      status.textContent = 'cancelled';
+      status.style.color = 'var(--text2)';
+      return;
+    }
+    outputEl.innerHTML = '';
+  }
+
+  try {
+    // Setup stdout capture
+    pyodide.runPython(`
+import sys, io, builtins
+_buf = io.StringIO()
+sys.stdout = _buf
+`);
+
+    // Inject mock input if needed
+    if (inputs.length > 0) {
+      pyodide.globals.set('_mock_inputs', inputs);
+      pyodide.runPython(`
+_mock_idx = 0
+def _mock_input(prompt=''):
+    global _mock_idx
+    val = _mock_inputs[_mock_idx]
+    _mock_idx += 1
+    print(str(prompt) + str(val))
+    return str(val)
+builtins.input = _mock_input
+`);
+    }
+
+    pyodide.runPython(code);
+    const out = pyodide.runPython('_buf.getvalue()');
+    pyodide.runPython('sys.stdout = sys.__stdout__');
+
+    renderLines(outputEl, out || '(no output)', false);
+    status.textContent = '✓ success';
+    status.style.color = 'var(--accent)';
+  } catch(err) {
+    try { pyodide.runPython('sys.stdout = sys.__stdout__'); } catch(_){}
+    const msg = String(err.message || err).split('\n').filter(l => l.trim() && !l.includes('at Object') && !l.includes('at _')).join('\n');
+    renderLines(outputEl, msg, true);
+    status.textContent = '✗ error';
+    status.style.color = 'var(--err-text,#ff6b9d)';
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '▶ Run';
+}
+
+function renderLines(el, text, isError) {
+  el.className = 'terminal-output' + (isError ? ' error' : '');
+  el.innerHTML = '';
+  text.split('\n').forEach((line, i) => {
+    const d = document.createElement('div');
+    d.className = 'out-line';
+    d.style.animationDelay = (i * 35) + 'ms';
+    d.textContent = line;
+    el.appendChild(d);
+  });
+}
+
+function gatherInputs(n, code, count) {
+  return new Promise(resolve => {
+    const terminal = document.getElementById('terminal'+n);
+    const outputEl = document.getElementById('output'+n);
+    terminal.classList.add('open');
+
+    // Extract prompt strings
+    const prompts = [];
+    const re = /input\s*\(\s*(?:["'`](.*?)["'`])?\s*\)/g;
+    let m;
+    while ((m = re.exec(code)) !== null) prompts.push(m[1] || `Value ${prompts.length+1}: `);
+    while (prompts.length < count) prompts.push(`Value ${prompts.length+1}: `);
+
+    const values = [];
+    let idx = 0;
+
+    function next() {
+      if (idx >= count) { resolve(values); return; }
+
+      outputEl.innerHTML = '';
+      const wrap = document.createElement('div');
+      wrap.className = 'input-prompt-wrap';
+
+      // Show previous values
+      values.forEach((v, vi) => {
+        const prev = document.createElement('div');
+        prev.style.color = 'var(--text2)';
+        prev.style.fontSize = '12px';
+        prev.style.marginBottom = '4px';
+        prev.textContent = `${prompts[vi]}${v}`;
+        wrap.appendChild(prev);
+      });
+
+      const row = document.createElement('div');
+      row.className = 'input-row';
+      const label = document.createElement('span');
+      label.className = 'input-prompt-label';
+      label.textContent = '▷ ' + prompts[idx];
+      const field = document.createElement('input');
+      field.type = 'text';
+      field.className = 'input-field';
+      field.placeholder = 'type and press Enter…';
+      const hint = document.createElement('div');
+      hint.className = 'input-hint';
+      hint.textContent = `Input ${idx+1} of ${count} — press Enter to confirm, Esc to cancel`;
+
+      row.appendChild(label);
+      row.appendChild(field);
+      wrap.appendChild(row);
+      wrap.appendChild(hint);
+      outputEl.appendChild(wrap);
+      field.focus();
+
+      field.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          values.push(field.value);
+          idx++;
+          next();
+        } else if (e.key === 'Escape') {
+          resolve(null);
+        }
+      });
+    }
+    next();
+  });
+}
+
+function resetCode(n) {
+  document.getElementById('code'+n).value = originalCode[n];
+  const t = document.getElementById('terminal'+n);
+  t.classList.remove('open');
+  document.getElementById('status'+n).textContent = '';
+}
+</script>
+</body>
+</html>

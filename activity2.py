@@ -1,6 +1,6 @@
 #====================================
-#activity 2                         |
-#Python program to add two numbers  |
+#activity 2                         #
+#Python program to add two numbers  #
 #====================================
 
 num1 = 1.5

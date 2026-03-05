@@ -1,6 +1,6 @@
 #====================================
-#activity 5                         |
-#for real or complex numbers        |
+#activity 5                         #
+#for real or complex numbers        #
 #====================================
 import cmath
 

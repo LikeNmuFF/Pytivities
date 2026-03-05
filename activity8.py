@@ -1,6 +1,6 @@
 #=======================================
-#activity 8                            |
-#Python Program to Swap Two Variables  |
+#activity 8                            #
+#Python Program to Swap Two Variables  #
 #=======================================
 x = 5
 y = 10

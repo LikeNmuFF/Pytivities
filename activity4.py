@@ -1,7 +1,7 @@
 #====================================
-#activity 4                         |
-#python program to find square root |
-#for positive numbers               |
+#activity 4                         #
+#python program to find square root #
+#for positive numbers               #
 #====================================
 num = 8
 num_sqrt = num ** 0.5

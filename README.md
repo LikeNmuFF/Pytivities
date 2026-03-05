@@ -1,263 +1,375 @@
 # 🐍 Python School Activities
 
-- A small, friendly set of beginner Python exercises — copy, run, learn.
+A fun collection of **beginner-friendly Python exercises** for learning programming step-by-step.
 
-![Python](https://img.shields.io/badge/Python-3.x-blue.svg) ![GitHub](https://img.shields.io/badge/GitHub-README-brightgreen) ![School](https://img.shields.io/badge/School-Activities-orange)
+![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
+![GitHub](https://img.shields.io/badge/GitHub-README-brightgreen)
+![School](https://img.shields.io/badge/School-Activities-orange)
 
 <p align="center">
-  <img src="assets/animated-header.svg" alt="Animated header" width="720" />
-  <br />
+  <img src="assets/animated-header.svg" alt="Animated header" width="720"/>
+  <br>
   <em>A collection of short, focused Python programs for learners 🎉</em>
 </p>
 
 ---
 
-## ✨ Highlights
+# ✨ Highlights
 
-- ⭐ Beginner-friendly — clear, focused exercises
-- ⚡ Quick to run — copy/paste and learn in minutes
-- 🎯 Hands-on — covers I/O, math, control flow, and more
-
-## 🔧 Features
-
-- Short, self-contained activity files ideal for classrooms
-- Clean output examples and easy-to-follow code
-- Encourages modification and experimentation
+⭐ Beginner-friendly Python programs
+⚡ Quick and easy to run
+🎯 Perfect for classroom exercises
+🧠 Learn programming through practice
 
 ---
 
-## 📋 Table of Contents
+# 📋 Table of Contents
 
-- [🌟 Overview](#-overview)
-- [🎯 Activities](#-activities)
-- [🚀 Getting Started](#-getting-started)
-- [🖼️ Showcase](#-showcase)
-- [📝 Code Examples](#-code-examples)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- Overview
+- Activities
+- Getting Started
+- Code Examples
+- Learning Progress
+- What You'll Learn
 
 ---
 
-## 🌟 Overview
+# 🌟 Overview
 
-This repository contains **8 Python activities** perfect for beginners learning programming! Each activity demonstrates fundamental Python concepts in a simple, easy-to-understand way.
+This repository contains **14 beginner Python activities** designed to teach basic programming concepts in a **simple and fun way**.
 
 <div align="center">
-  <img src="https://media.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif" width="280" alt="fun python" />
+
+<img src="https://media.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif" width="260">
+
 </div>
 
 ---
 
-## 🎯 Activities
+# 🎯 Activities
 
-| #   | Activity                | Description            | Concepts                   |
-| --- | ----------------------- | ---------------------- | -------------------------- |
-| 1️⃣  | **Hello World**         | First program ever!    | `print()` function         |
-| 2️⃣  | **Add Two Numbers**     | Basic arithmetic       | Variables, `+` operator    |
-| 3️⃣  | **User Input Addition** | Interactive program    | `input()`, type conversion |
-| 4️⃣  | **Square Root**         | Calculate square root  | `**` operator, formatting  |
-| 5️⃣  | **Complex Numbers**     | Math with complex nums | `cmath` module             |
-| 6️⃣  | **Triangle Area**       | Heron's formula        | Math expressions           |
-| 7️⃣  | **Quadratic Equation**  | Solve ax²+bx+c=0       | `cmath`, complex math      |
-| 8️⃣  | **Swap Variables**      | Exchange values        | Temporary variables        |
+| #   | Activity            | Description               | Concepts           |
+| --- | ------------------- | ------------------------- | ------------------ |
+| 1   | Hello World         | First Python program      | `print()`          |
+| 2   | Add Two Numbers     | Basic arithmetic          | variables          |
+| 3   | User Input Addition | Interactive program       | `input()`          |
+| 4   | Square Root         | Calculate square root     | math operators     |
+| 5   | Complex Numbers     | Math with complex numbers | `cmath`            |
+| 6   | Triangle Area       | Heron's formula           | expressions        |
+| 7   | Quadratic Equation  | Solve quadratic equation  | math               |
+| 8   | Swap Variables      | Exchange values           | variables          |
+| 9   | Random Number       | Generate random number    | `random`           |
+| 10  | Kilometer to Miles  | Unit conversion           | arithmetic         |
+| 11  | Access List Items   | Working with lists        | indexing           |
+| 12  | List Comprehension  | Filter list values        | list comprehension |
+| 13  | List Slicing        | Extract list section      | slicing            |
+| 14  | Loop Through List   | Iterate list items        | `for` loop         |
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
-### Prerequisites
+## Requirements
 
 - Python 3.x installed
-- A code editor (VS Code, PyCharm, or any text editor)
-- Enthusiasm to learn! 🎉
+- Code editor (VS Code, PyCharm, etc.)
 
-### How to Run
+## Run the project
 
 ```bash
-# Clone the repository
 git clone https://github.com/LikeNmuFF/Pytivities.git
-
-# Navigate to the folder
 cd Pytivities
-
-# Run any activity (example)
 python Activity1.py
 ```
 
 ---
 
-## 📝 Code Examples
+# 📝 Code Examples
 
-### 🎬 Activity 1: Hello World
+---
+
+# 🎬 Activity 1 — Hello World
 
 ```python
 print("Hello World!")
 ```
 
-**Output:** `Hello World!`
+**Output**
+
+```
+Hello World!
+```
 
 ---
 
-### ➕ Activity 2: Add Two Numbers
+# ➕ Activity 2 — Add Two Numbers
 
 ```python
 num1 = 1.5
 num2 = 6.3
+
 sum = num1 + num2
+
 print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
 ```
 
-**Output:** `The sum of 1.5 and 6.3 is 7.8`
+**Output**
 
----
-
-### ⌨️ Activity 3: User Input Addition
-
-```python
-num2 = input("Enter first number: ")
-num3 = input("Enter second number: ")
-sum = float(num2) + float(num3)
-print('The sum of {0} and {1} is {2}'.format(num2, num3, sum))
+```
+The sum of 1.5 and 6.3 is 7.8
 ```
 
-**Interactive!** Users can enter their own numbers.
+---
+
+# ⌨️ Activity 3 — User Input Addition
+
+```python
+num1 = input("Enter first number: ")
+num2 = input("Enter second number: ")
+
+sum = float(num1) + float(num2)
+
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+```
 
 ---
 
-### √ Activity 4: Square Root
+# √ Activity 4 — Square Root
 
 ```python
 num = 8
+
 num_sqrt = num ** 0.5
+
 print('The square root of %0.3f is %0.3f' % (num, num_sqrt))
 ```
 
-**Output:** `The square root of 8.000 is 2.828`
+**Output**
+
+```
+The square root of 8.000 is 2.828
+```
 
 ---
 
-### 🔢 Activity 5: Complex Numbers
+# 🔢 Activity 5 — Complex Numbers
 
 ```python
 import cmath
-num = 1+2j
+
+num = 1 + 2j
+
 num_sqrt = cmath.sqrt(num)
+
 print('The square root of {0} is {1:0.3f} + {2:0.3f}j'.format(num, num_sqrt.real, num_sqrt.imag))
 ```
 
-**Output:** `The square root of (1+2j) is 1.272 + 0.786j`
-
 ---
 
-### 🔺 Activity 6: Triangle Area
+# 🔺 Activity 6 — Triangle Area
 
 ```python
 a = 5
 b = 6
 c = 7
+
 s = (a + b + c) / 2
+
 area = (s*(s-a)*(s-b)*(s-c))**0.5
+
 print('The area of the triangle is %0.2f' % area)
 ```
 
-**Output:** `The area of the triangle is 14.70`
-
 ---
 
-### 📈 Activity 7: Quadratic Equation
+# 📈 Activity 7 — Quadratic Equation
 
 ```python
 import cmath
+
 a = 1
 b = 5
 c = 6
+
 d = (b**2) - (4*a*c)
+
 sol1 = (-b-cmath.sqrt(d))/(2*a)
 sol2 = (-b+cmath.sqrt(d))/(2*a)
-print('The solution are {0} and {1}'.format(sol1, sol2))
-```
 
-**Output:** `The solution are (-3+0j) and (-2+0j)`
+print('The solutions are {0} and {1}'.format(sol1, sol2))
+```
 
 ---
 
-### 🔄 Activity 8: Swap Variables
+# 🔄 Activity 8 — Swap Variables
 
 ```python
 x = 5
 y = 10
+
 temp = x
 x = y
 y = temp
-print('The value of x after swapping: {}'.format(x))
-print('The value of y after swapping: {}'.format(y))
-```
 
-**Output:**
-
-```
-The value of x after swapping: 10
-The value of y after swapping: 5
+print('The value of x after swapping:', x)
+print('The value of y after swapping:', y)
 ```
 
 ---
 
-## 🎮 Run All Activities at Once
-
-<details>
-<summary>Click to expand the full "run-all" script (copy & paste)</summary>
+# 🎲 Activity 9 — Generate Random Number
 
 ```python
-# Complete Python School Activities
-# Copy and paste everything below!
+import random
 
-# ACTIVITY 1
-print("=" * 50)
-print("ACTIVITY 1: Hello World")
-print("=" * 50)
-print("Hello World!")
-print()
-
-# (rest of activities omitted here for brevity — expand above to view full script)
+print(random.randint(0, 9))
 ```
 
-</details>
-
-Tip: open any `ActivityX.py` file, run it, then tweak values to experiment — that's how learning sticks! 🎯
-
----
-
-## 📊 Learning Progress
+Example Output
 
 ```
-Activity 1: [██████████] 100% - Hello World
-Activity 2: [██████████] 100% - Adding Numbers
-Activity 3: [██████████] 100% - User Input
-Activity 4: [██████████] 100% - Square Root
-Activity 5: [██████████] 100% - Complex Numbers
-Activity 6: [██████████] 100% - Triangle Area
-Activity 7: [██████████] 100% - Quadratic
-Activity 8: [██████████] 100% - Swap Variables
+5
 ```
 
 ---
 
-## 🎓 What You'll Learn
+# 📏 Activity 10 — Convert Kilometers to Miles
 
-✅ Basic `print()` statements  
-✅ Variables and data types  
-✅ User input handling  
-✅ Mathematical operations  
-✅ Using Python modules  
-✅ String formatting  
-✅ Problem-solving skills
+```python
+kilometers = float(input("Enter value in kilometers: "))
+
+conv_fac = 0.621371
+
+miles = kilometers * conv_fac
+
+print('%0.2f kilometers is equal to %0.2f miles' % (kilometers, miles))
+```
+
+Example Output
+
+```
+Enter value in kilometers: 3.5
+3.50 kilometers is equal to 2.17 miles
+```
+
+---
+
+# 📚 Activity 11 — Access List Items
+
+```python
+a = [10, 20, 30, 40, 50]
+
+print(a[0])
+print(a[-1])
+```
+
+Output
+
+```
+10
+50
+```
+
+---
+
+# ⚡ Activity 12 — List Comprehension
+
+```python
+a = [10, 20, 30, 40, 50]
+
+b = [item for item in a if item > 20]
+
+print(b)
+```
+
+Output
+
+```
+[30, 40, 50]
+```
+
+---
+
+# ✂️ Activity 13 — List Slicing
+
+```python
+a = [10, 20, 30, 40, 50]
+
+print(a[1:4])
+```
+
+Output
+
+```
+[20, 30, 40]
+```
+
+---
+
+# 🔁 Activity 14 — Using Loop
+
+```python
+a = [10, 20, 30, 40, 50]
+
+for item in a:
+    print(item)
+```
+
+Output
+
+```
+10
+20
+30
+40
+50
+```
+
+---
+
+# 📊 Learning Progress
+
+```
+Activity 1  ██████████ 100%
+Activity 2  ██████████ 100%
+Activity 3  ██████████ 100%
+Activity 4  ██████████ 100%
+Activity 5  ██████████ 100%
+Activity 6  ██████████ 100%
+Activity 7  ██████████ 100%
+Activity 8  ██████████ 100%
+Activity 9  ██████████ 100%
+Activity 10 ██████████ 100%
+Activity 11 ██████████ 100%
+Activity 12 ██████████ 100%
+Activity 13 ██████████ 100%
+Activity 14 ██████████ 100%
+```
+
+---
+
+# 🎓 What You'll Learn
+
+By completing these activities you will learn:
+
+✔ Python basics
+✔ Variables and data types
+✔ User input
+✔ Mathematical operations
+✔ Python modules
+✔ Lists and indexing
+✔ List comprehension
+✔ List slicing
+✔ Loops and iteration
 
 ---
 
 <div align="center">
-  <h2>🌟Happy Life - Happy Coding! 🌟</h2>
-  <img src="https://media.giphy.com/media/10zxDv7Hv5RF9C/giphy.gif" width="400">
-  
-  [![Made with ❤️](https://img.shields.io/badge/Made%20with-❤️-red.svg)](https://github.com/yourusername)
-  [![For education](https://img.shields.io/badge/For-Education-blue.svg)](https://github.com/yourusername)
+
+## 🌟 Happy Coding! 🌟
+
+<img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" width="350">
+
+Made for **students learning Python** 🐍
+
 </div>

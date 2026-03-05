@@ -1,6 +1,6 @@
 #====================================
-#activity 3                         |
-#Add two numbers with user input    |
+#activity 3                         #
+#Add two numbers with user input    #
 #====================================
 num2 = input("Enter first number: ")
 num3 = input("Enter second number: ")
